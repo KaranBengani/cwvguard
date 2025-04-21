@@ -7,11 +7,11 @@ function isDynamicRoute(route: string): boolean {
 }
 
 function normalizePath(p: string): string {
-  return p.replace(/\\/g, '/'); // For Windows compatibility
+  return p.replace(/\\/g, '/').replace(/^\/?\([^/]+\)\//, ''); // For Windows compatibility
 }
 export function generateRoutes(rootPath: string): string[] {
-  const appDir = path.join(rootPath, 'app');
-  const pagesDir = path.join(rootPath, 'pages');
+  var appDir = path.join(rootPath, 'app');
+  var pagesDir = path.join(rootPath, 'pages');
 
   let routePaths: string[] = [];
 
@@ -38,7 +38,10 @@ export function generateRoutes(rootPath: string): string[] {
       }
     }
   };
-
+  if(!fs.existsSync(appDir) && !fs.existsSync(pagesDir)){
+    appDir = path.join(rootPath, 'src/app');
+    pagesDir = path.join(rootPath, 'src/pages')
+  }
   if (fs.existsSync(appDir)) {
     // New app/ directory-based routing
     scanDir(appDir);
@@ -71,8 +74,8 @@ export function generateRoutes(rootPath: string): string[] {
   return routePaths.sort();
 }
 export function generateRoutesFromApp(rootPath: string): string[] {
-  const appDir = path.join(rootPath, 'app');
-  const pagesDir = path.join(rootPath, 'pages');
+  var appDir = path.join(rootPath, 'app');
+  var pagesDir = path.join(rootPath, 'pages');
 
   let routePaths: string[] = [];
 
@@ -99,7 +102,10 @@ export function generateRoutesFromApp(rootPath: string): string[] {
       }
     }
   };
-
+  if(!fs.existsSync(appDir) && !fs.existsSync(pagesDir)){
+    appDir = path.join(rootPath, 'src/app');
+    pagesDir = path.join(rootPath, 'src/pages')
+  }
   if (fs.existsSync(appDir)) {
     // New app/ directory-based routing
     scanDir(appDir);
