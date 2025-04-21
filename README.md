@@ -56,8 +56,8 @@ This will:
 - Crawl and collect static routes
 - Evaluate CWV scores from PSI
 - Generate:
-  - A `middleware.ts` file with route-blocking logic
   - A `blocked-routes.json` file listing poor-performing routes
+  - A `cwv-scores-manual.json` file that stores the performance report
 
 ---
 
@@ -87,7 +87,7 @@ npm run build
 After running the CLI, you’ll get:
 
 - ✅ `blocked-routes.json` — list of routes with CWV scores below your threshold.
-- ✅ `middleware.ts` — auto-generated Next.js middleware that prevents those routes from rendering (requires manual setup).
+- ✅ `middleware.ts` — exportable Next.js middleware that prevents those routes from rendering (requires manual setup).
 - ✅ Console logs — details on analyzed routes and their performance scores.
 
 ---
