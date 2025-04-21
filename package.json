@@ -1,10 +1,18 @@
 {
   "name": "cwvguard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A build-time utility to analyze your Next.js routes based on Core Web Vitals and automatically block low-performing pages using middleware, ensuring only high-quality user experiences make it to production. Includes a CLI (`cwvguard-prebuild`) to detect underperforming routes pre-deployment, and generates middleware to block them in real time.",
-  "keywords": ["nextjs", "core web vitals", "performance", "middleware", "cli"],
+  "keywords": [
+    "nextjs",
+    "core web vitals",
+    "performance",
+    "middleware",
+    "cli"
+  ],
   "license": "ISC",
-  "repository":{"url": "https://github.com/KaranBengani/cwvguard"},
+  "repository": {
+    "url": "https://github.com/KaranBengani/cwvguard"
+  },
   "author": "Karan Bengani",
   "type": "module",
   "main": "./dist/index.js",
