@@ -1,0 +1,41 @@
+{
+  "name": "cwvguard",
+  "version": "1.0.0",
+  "description": "A build-time utility to analyze your Next.js routes based on Core Web Vitals and automatically block low-performing pages using middleware, ensuring only high-quality user experiences make it to production. Includes a CLI (`cwvguard-prebuild`) to detect underperforming routes pre-deployment, and generates middleware to block them in real time.",
+  "keywords": ["nextjs", "core web vitals", "performance", "middleware", "cli"],
+  "license": "ISC",
+  "author": "Karan Bengani",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "cwvguard-prebuild": "dist/prebuild.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./middleware": {
+      "import": "./dist/middleware/index.js",
+      "require": "./dist/middleware/index.js",
+      "types": "./dist/middleware/index.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "next": "^13.0.0 || ^14.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7"
+  }
+}

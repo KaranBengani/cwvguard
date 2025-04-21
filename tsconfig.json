@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ES2022",
+        "moduleResolution": "Bundler",
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "types": [
+            "node"
+        ],
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+    },
+    "include": ["src/**/*", "postbuild.ts", "index.ts", "prebuild.ts"]
+}
